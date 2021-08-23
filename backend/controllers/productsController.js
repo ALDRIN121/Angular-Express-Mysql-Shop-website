@@ -1,14 +1,16 @@
 const mysqlCon = require('../db');
 
-exports.viewProducts=(req,res)=>{
+exports.viewProducts=async (req,res)=>{
     sql="SELECT * FROM products"
     mysqlCon.query(sql,(err,row)=>{
-        if(!err){
-            res.send(row);
-        }
-        else{
-            res.send(err);
-        }
+            try{
+                if(!err){
+                    res.send(row);
+                        }
+                }
+            catch(err){
+                    res.send(err);
+    }
     })
 }
 

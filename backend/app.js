@@ -13,7 +13,7 @@ mysqlCon.connect((err)=>{
         console.log("Db is connected");
     }
     else{
-        console.log("Db not connnected")
+        console.log("Db not connnected");
     }
 });
 

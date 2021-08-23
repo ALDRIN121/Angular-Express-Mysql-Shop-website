@@ -39,4 +39,29 @@ exports.updateData=(req,res)=>{
     });
 }
 
+exports.deleteData=(req,res)=>{
+    let users = req.body;
+    var sql = "DELETE FROM users WHERE id=?";
+    mysqlCon.query(sql,[req.params.id],(err,row)=>{
+        if(!err){
+            res.send("Row deleted");
+        }
+        else{
+            console.log(err);
+        }
+    });
+}
+
+exports.searchData=(req,res)=>{
+    var sql = "SELECT * FROM users WHERE id=?"
+    mysqlCon.query(sql,[req.params.id],(err,row)=>{
+        if(!err){
+            res.send(row);
+        }
+        else{
+            res.send(err);
+        }
+    });
+}
+
 
